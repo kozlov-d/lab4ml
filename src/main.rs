@@ -66,10 +66,7 @@ fn main() {
         // длины векторов разностей цветов между текущим и предыдущим "центрами"
         // для останова вычислений при некоторой точности
         for cl in &clusters {
-            change.push(abs_sub_colors(
-                &cl.center,
-                &cl.prev_center,
-            ));
+            change.push(abs_sub_colors(&cl.center, &cl.prev_center));
         }
         // останов если самое значительное смещение центра не превышает количества кластеров
         change.sort_by(|a, b| b.partial_cmp(a).unwrap());
